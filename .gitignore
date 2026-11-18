@@ -1,0 +1,38 @@
+.vscode/
+
+# ---------- Secrets / config ----------
+src/main/resources/application.properties
+src/test/resources/test.properties
+*.local.properties
+.env
+.env.*
+*.pem
+*.key
+secrets/
+
+# ---------- Maven stuff ----------
+target/
+dependency-reduced-pom.xml
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# ---------- OS stuff ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---------- Logs & temp ----------
+*.log
+logs/
+*.tmp
+*.swp
+
+# ---------- Local database data / dumps ----------
+data/
+*.dump
+*.bak
+mongo-data/
+pgdata/
