@@ -6,7 +6,7 @@ import com.group14.model.enums.Role;
 
 
 public abstract class Person {
-    private final Long id; //supplied by db, null when initialised
+    private final Long id; //supplied by db, null when declared
     private final String firstName;
     private final String lastName;
     private final String userName;
@@ -19,9 +19,13 @@ public abstract class Person {
     protected Person(Long id, String firstName, String lastName,
                      String userName, String passwordHash) {
         this.id = id;
-        this.firstName = firstName; //NOT NULL, throw custom exception probably
+        Objects.requireNonNull(firstName, "firstName must not be null");
+        Objects.requireNonNull(userName, "userName must not be null");
+        Objects.requireNonNull(passwordHash, "passwordHash must not be null");
+
+        this.firstName = firstName; //NOT NULL
         this.lastName = lastName;
-        this.userName = userName; //NOT NULL, db enforces uniqueness?
+        this.userName = userName; //NOT NULL
         this.passwordHash = passwordHash; //NOT NULL
     }
 
@@ -37,7 +41,7 @@ public abstract class Person {
         return lastName == null || lastName.isBlank() ? firstName : firstName + " " + lastName;
     }
 
-    //Utility functions
+    //identity functions
 
     @Override
     public boolean equals(Object o) {
