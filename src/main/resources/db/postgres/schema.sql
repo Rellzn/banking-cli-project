@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS users (
         );
 CREATE TABLE IF NOT EXISTS accounts (
             account_id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-            balance    ,NUMERIC(19,4) NOT NULL DEFAULT 0 CHECK (balance >= 0),
+            balance    NUMERIC(19,4) NOT NULL DEFAULT 0 CHECK (balance >= 0),
             status     VARCHAR(20)   NOT NULL DEFAULT 'ACTIVE'
                        CHECK (status IN ('ACTIVE','FROZEN','CLOSED')),
             created_at TIMESTAMPTZ   NOT NULL DEFAULT now(),
