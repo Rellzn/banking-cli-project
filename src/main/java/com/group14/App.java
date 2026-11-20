@@ -9,7 +9,7 @@ public class App {
         //postgresConnectionTest();
         //getMongoClient();
 
-        
+
         try (ApplicationContext ctx = new ApplicationContext()) {
             System.out.println("db ready");
         } catch (BankingException e) {
